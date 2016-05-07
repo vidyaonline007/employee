@@ -1,0 +1,29 @@
+<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+      
+        <div ng-repeat="employee in employees">
+        <a ng-href="employee/{{employee.id}}">
+          <h1 ng-bind="employee.name"></h1>
+          <h4 ng-bind="employee.email"></h4>
+        </div>
+        </div>
+        <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+          <span class="glyphicon glyphicon-menu-right" ng-show="closed" ng-click="closed=false"></span>
+          <span class="glyphicon glyphicon-menu-down" ng-hide="closed" ng-click="closed=true"></span>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" ng-hide="closed">
+        
+            <legend>Add</legend>
+          
+            <div class="form-group">
+              <label for="">Name</label>
+              <input type="text" class="form-control" id="" placeholder="Enter Name" ng-model="employee.name" ng-keyup="validateName()">
+            </div>
+          
+            <div class="form-group">
+            <label for="email" >Email</label>
+            <input type="input" name="" id="input" class="form-control" value="" required="required" ng-model="employee.email" ng-keyup="validateEmail()" placeholder="Enter Email">
+            </div>
+          
+            <button type="button" class="btn btn-primary" ng-click="addEmployee()" ng-show="isValid()">Add</button>
+         
+        </div>
